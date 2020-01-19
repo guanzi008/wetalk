@@ -388,9 +388,9 @@ func (this *BaseRouter) validForm(form interface{}, names ...string) (bool, map[
 	// Verify basic input.
 	valid := validation.Validation{}
 	if ok, _ := valid.Valid(form); !ok {
-		errs := valid.ErrorMap()
+		//errs := valid.ErrorMap() //还不会go所以就注销了这行
 		this.Data[errName] = &valid
-		return false, errs
+		return false, nil        //errs改成nil
 	}
 	return true, nil
 }
